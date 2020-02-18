@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 const cors = require('cors');
 //Inicialize tha main project folder
-app.use(express.static('/', 'website'));
+app.use(express.static('website'));
 
 const port = 3000;
 //Spin up the server
@@ -18,7 +18,7 @@ const server = app.listen(port, listening);
 
 //callback
 function listening(){
-    console.log(`Running in the localhost: ${port}` );
+    console.log(`Running in the localhost: ${port}`);
 };
 
 
