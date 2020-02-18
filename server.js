@@ -9,7 +9,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 const cors = require('cors');
-//Inicialize tha main project folder
+app.use(cors());
+
+//Inicialize the main project folder
 app.use(express.static('website'));
 
 const port = 3000;
@@ -18,7 +20,7 @@ const server = app.listen(port, listening);
 
 //callback
 function listening(){
-    console.log(`Running in the localhost: ${port}`);
-};
+    console.log(`Running on localhost: ${port}`);
+}
 
 
