@@ -67,6 +67,7 @@ section article{
     border-radius: 5px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 section article form{
@@ -88,6 +89,7 @@ section article form input[type="submit"]{
     color: #fff;
     border: none;
     outline: 0;
+    cursor: pointer;
 }
 
 footer{
@@ -103,4 +105,26 @@ footer h3{
     color: #f3f3f3;
     font-size: 1em;
     font-weight: normal;
+}
+
+/**Clases***/
+.resultados{
+    width: 80%;
+    height: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 80px;
+}
+
+.resultados h2{
+    margin-left: 80px;
+    padding: 5px;
+}
+
+.resultados p{
+    margin-left: 80px;
+    padding: 5px;
 }
