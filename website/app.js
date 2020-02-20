@@ -8,13 +8,14 @@ window.onload = function(){
             footer.innerHTML = `<h3> Copyright &copy; ${year} </h3>`;
         }
 
-        resultados(city, temperature, description){
+        resultados(city, temperature, description, country){
             const article = document.getElementById('article');
             const element = document.createElement('div');
             element.classList.add('resultados');
             element.innerHTML = `<h2>${city}</h2>`;
-            element.innerHTML += `<p>${temperature}</p>`;
-            element.innerHTML += `<p>${description}</p>`;
+            element.innerHTML += `<p>Country: ${country}</p>`;
+            element.innerHTML += `<p>Temperature: ${temperature}</p>`;
+            element.innerHTML += `<p>Description: ${description}</p>`;
             article.appendChild(element);
         }
     }
@@ -39,7 +40,9 @@ window.onload = function(){
             const city = data['name'];
             const temperature = data['main']['temp'];
             const descValue = data['weather'][0]['description'];
-            ui.resultados(city, temperature, descValue);
+            const country = data['sys']['country'];
+            
+            ui.resultados(city, temperature, descValue, country);
         })
 
         .catch(err => alert("wrong city name"))
