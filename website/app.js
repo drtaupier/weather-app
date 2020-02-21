@@ -28,16 +28,21 @@ window.onload = function(){
         }
 
     }
-
     
     //Instanciando la clase
     const ui = new UI();
     
     //footer
     ui.footerCopyright();
-    
-    
+    //Variables:
     const form = document.getElementById('form');
+    const ciudad = document.getElementById('city');
+
+    //function to change to uppercase.
+    ciudad.onkeyup = function(){
+        ciudad.value = ciudad.value.toUpperCase();
+    }
+
     form.addEventListener('submit', function(e){
         ui.delete();
         const apiKey = 'b06beb7d88106fd35742f31d9b9865b5';
@@ -57,9 +62,6 @@ window.onload = function(){
         })
     
         .catch(err => console.log('Wrong city name'))
-    })
-    
-    
-    
+    }) 
     console.log(t0);   
 }

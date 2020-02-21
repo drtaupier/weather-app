@@ -29,7 +29,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100px;
+    height: 12vh;
 }
 
 header h1{
@@ -52,7 +52,7 @@ nav ul li, a{
 
 section{
     grid-area: section;
-    height: 737px;
+    height: 78vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,7 +95,7 @@ section article form input[type="submit"]{
 footer{
     grid-area: footer;
     background: #142D40;
-    height: 100px;
+    height: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
