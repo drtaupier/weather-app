@@ -14,10 +14,19 @@ window.onload = function(){
             element.classList.add('resultados');
             element.innerHTML = `<h2>${city}</h2>`;
             element.innerHTML += `<p>Country: ${country}</p>`;
-            element.innerHTML += `<p>Temperature: ${temperature}</p>`;
+            element.innerHTML += `<p>Temperature: ${temperature} &#176;F</p>`;
             element.innerHTML += `<p>Description: ${description}</p>`;
             article.appendChild(element);
         }
+
+        delete(){
+            const button = document.getElementById('submit');
+            button.addEventListener('click', function(){
+                const resultado = button.parentElement.nextElementSibling;
+                resultado.remove();
+            })
+        }
+
     }
 
     
@@ -29,25 +38,28 @@ window.onload = function(){
     
     
     const form = document.getElementById('form');
-    
-    //Aquí inicia todo:
     form.addEventListener('submit', function(e){
+        ui.delete();
+        const apiKey = 'b06beb7d88106fd35742f31d9b9865b5';
         const inputValue = document.getElementById('city').value;
         e.preventDefault();
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=b06beb7d88106fd35742f31d9b9865b5`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=${apiKey}`)
         .then(response => response.json())
         .then(data => {
             const city = data['name'];
-            const temperature = data['main']['temp'];
+            const temperature2 = data['main']['temp'];
+            const temperature = Math.round((temperature2*1.8)-459.67); //convertir kelvin a Fahrenheit
+            // const temperature = Math.round(temperature1); //redondeamos el resultado
             const descValue = data['weather'][0]['description'];
             const country = data['sys']['country'];
-            
+    
             ui.resultados(city, temperature, descValue, country);
         })
-
-        .catch(err => alert("wrong city name"))
-    })
-    console.log(t0);
-
     
+        .catch(err => console.log('Wrong city name'))
+    })
+    
+    
+    
+    console.log(t0);   
 }
