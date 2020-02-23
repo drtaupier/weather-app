@@ -53,8 +53,7 @@ window.onload = function(){
         .then(data => {
             const city = data['name'];
             const temperature2 = data['main']['temp'];
-            const temperature = Math.round((temperature2*1.8)-459.67); //convertir kelvin a Fahrenheit
-            // const temperature = Math.round(temperature1); //redondeamos el resultado
+            const temperature = Math.round((temperature2*1.8)-459.67); //convertir kelvin a Fahrenheit y redondeamos el resultado
             const descValue = data['weather'][0]['description'];
             const country = data['sys']['country'];
     
