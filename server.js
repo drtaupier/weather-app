@@ -1,5 +1,16 @@
 // Setup empty JS object to act as endpoint for all routes
-projectData = {};
+projectData = [
+    {id:1,
+    temp:15,
+    usuario:'drtaupier'},
+    {
+    id:2,
+    temp:18,
+    usuario:'bye'
+    }
+]
+    
+
 
 //Express to run server and routes
 const express = require('express');
@@ -15,21 +26,21 @@ const cors = require('cors');
 app.use(cors());
 
 //GET route
-app.get('/all', sendData);
-
-function sendData(req, res){
+app.get('/api/projectdata', (req, res) => {
     res.send(projectData);
-    console.log(projectData);
-};
+});
 
 //POST route 
-app.post('/all', callBack);
+app.post('/api/addData', (req, res)=>{
+    console.log(req.body.json());
+    res.send(req.body);
+});
 
-function callBack(req, res){
-    console.log(req.body);
-    console.log(req.params)
-    res.send('POST Received');
-};
+//PUT route
+app.put()
+
+//Delete route
+app.delete()
 
 //Inicialize the main project folder
 app.use(express.static('website'));
