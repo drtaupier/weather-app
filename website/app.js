@@ -43,7 +43,7 @@ window.onload = function(){
         ciudad.value = ciudad.value.toUpperCase();
     }
 
-    form.addEventListener('submit', function(e){
+    form.addEventListener('submit', function(e){        
         ui.delete();
         const apiKey = 'b06beb7d88106fd35742f31d9b9865b5';
         const inputValue = document.getElementById('city').value;
@@ -56,11 +56,12 @@ window.onload = function(){
             const temperature = Math.round((temperature2*1.8)-459.67); //convertir kelvin a Fahrenheit y redondeamos el resultado
             const descValue = data['weather'][0]['description'];
             const country = data['sys']['country'];
-    
+        
             ui.resultados(city, temperature, descValue, country);
-        })
-    
+            })
+        
         .catch(err => console.log('Wrong city name'))
-    }) 
+        }) 
+    
     console.log(t0);   
 }

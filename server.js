@@ -19,6 +19,7 @@ app.get('/all', sendData);
 
 function sendData(req, res){
     res.send(projectData);
+    console.log(projectData);
 };
 
 //POST route 
