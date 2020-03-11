@@ -10,13 +10,11 @@ projectData = [
     }
 ]
     
-
-
 //Express to run server and routes
 const express = require('express');
 //Start up an instance of app
 const app = express();
-
+app.use(express.json());
 //Dependencies
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -32,16 +30,20 @@ app.get('/api/projectdata', (req, res) => {
 
 //POST route 
 app.post('/api/addData', (req, res)=>{
-    console.log(req.body.json());
-    res.send(req.body);
+    //let data = req.body;
+    
+    let data = {
+      id: getNextId(),
+      temp: req.body.temp,
+      usuario: req.body.usuario
+    }
+    projectData.push(data);
+    res.send('aqui esta tu respuesta');
 });
 
-//PUT route
-app.put()
-
-//Delete route
-app.delete()
-
+function getNextId(){
+    return projectData.length + 1;
+}
 //Inicialize the main project folder
 app.use(express.static('website'));
 
