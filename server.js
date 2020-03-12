@@ -30,8 +30,6 @@ app.get('/api/projectdata', (req, res) => {
 
 //POST route 
 app.post('/api/addData', (req, res)=>{
-    //let data = req.body;
-    
     let data = {
       id: getNextId(),
       temp: req.body.temp,
@@ -41,9 +39,8 @@ app.post('/api/addData', (req, res)=>{
     res.send('aqui esta tu respuesta');
 });
 
-function getNextId(){
-    return projectData.length + 1;
-}
+const getNextId = () => projectData.length+1;
+
 //Inicialize the main project folder
 app.use(express.static('website'));
 

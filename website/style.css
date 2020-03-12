@@ -27,7 +27,7 @@ header{
     grid-area: header;
     background: #47A4E6;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     height: 12vh;
 }
@@ -38,19 +38,8 @@ header h1{
     margin-left: 60px;
 }
 
-header nav{
-    margin-right: 60px;
-}
-
-nav ul li, a{
-    text-decoration: none;
-    list-style: none;
-    padding: 15px;
-    display: inline-block;
-    color: #f3f3f3;
-}
-
 section{
+    width: 100vw;
     grid-area: section;
     height: 78vh;
     display: flex;
@@ -127,4 +116,54 @@ footer h3{
 .resultados p{
     margin-left: 80px;
     padding: 5px;
+}
+
+@media only screen and (min-width:750px) and (max-width:980px){
+    article{
+        width: 90%;
+    }
+}
+
+@media only screen and (min-width:591px) and (max-width:750px){
+
+}
+
+@media only screen and (min-width:590px) and (max-width:370px){
+    .container{
+        grid-template-areas: 
+        "header"
+        "section"
+        "footer";
+    }
+
+    section{
+        width: 100vw;
+        justify-content: center;
+        align-items: center;
+    }
+
+    article{
+        min-width: 95%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #form{
+        width: 100%;
+        flex-direction: column;
+        min-width: 370px;
+    }
+
+    #form input[type=text]{
+        width: 100%;
+    }
+
+    .resultados{
+        width: 100vw;
+    }
+
+    .resultados h2, p{
+        margin-left: 20px;
+    }
 }
