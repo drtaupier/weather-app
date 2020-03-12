@@ -27,8 +27,21 @@ window.onload = function(){
             })
         }
 
+        date(){
+            const today = new Date();
+            const day = today.getDate();
+            const month = today.getMonth()+1;
+            const year = today.getFullYear();
+            const hour = today.getHours();
+            const minutes = today.getMinutes();
+            const fechaActual = `${month}/${day}/${year}`;
+            console.log(fechaActual);
+        }
+
     }
     
+    
+
     //Instanciando la clase
     const ui = new UI();
     
@@ -48,7 +61,7 @@ window.onload = function(){
         const apiKey = 'b06beb7d88106fd35742f31d9b9865b5';
         const inputValue = document.getElementById('city').value;
         e.preventDefault();
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=${apiKey}`)
+        fetch(``)
         .then(response => response.json())
         .then(data => {
             const city = data['name'];
