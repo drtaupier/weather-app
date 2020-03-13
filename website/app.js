@@ -53,12 +53,11 @@ window.onload = function(){
             ui.resultados(city, temperature, country, feeling);
         })
         
-        //.then(postData('localhost:3000/api/addData', {'temp': temperature, 'feeling': feeling}))
-        .catch(err => console.log('Wrong city name', err))
-        
+        .then(postData('localhost:3000/api/addData', {'temp': temperature, 'feeling': feeling}))
+        .catch(err => console.log('Wrong city name', err))        
         })
 
-        /*const postData = async(url='', data={})=>{
+        const postData = async(url='', data={})=>{
             console.log(data);
             const response = await fetch(url,{
                 method:'POST',
@@ -76,7 +75,7 @@ window.onload = function(){
             }catch(error){
                 console.log('Error: ', error);
             }
-        }*/
+        }
     
     console.log(t0);   
 }
