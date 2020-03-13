@@ -1,14 +1,5 @@
 // Setup empty JS object to act as endpoint for all routes
-projectData = [
-    {id:1,
-    temp:15,
-    usuario:'drtaupier'},
-    {
-    id:2,
-    temp:18,
-    usuario:'bye'
-    }
-]
+projectData = []
     
 //Express to run server and routes
 const express = require('express');
@@ -28,15 +19,27 @@ app.get('/api/projectdata', (req, res) => {
     res.send(projectData);
 });
 
+function myDate(){
+    const today = new Date();
+    const day = today.getDate();
+    const month = today.getMonth()+1;
+    const year = today.getFullYear();
+    const hour = today.getHours();
+    const minutes = today.getMinutes();
+    const fechaActual = `${month}-${day}-${year} ${hour}:${minutes} hrs.`;
+    return fechaActual;
+}
+
 //POST route 
 app.post('/api/addData', (req, res)=>{
     let data = {
       id: getNextId(),
       temp: req.body.temp,
-      usuario: req.body.usuario
+      date: myDate(),
+      feeling: req.body.feeling
     }
     projectData.push(data);
-    res.send('aqui esta tu respuesta');
+    res.send('Información enviada con éxito');
 });
 
 const getNextId = () => projectData.length+1;
