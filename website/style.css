@@ -148,7 +148,7 @@ footer h3{
         align-items: center;
     }
 
-    article{
+    /* article{
         min-width: 95%;
         flex-direction: column;
         justify-content: center;
@@ -172,18 +172,23 @@ footer h3{
 
     #form input[type=submit]{
         margin-bottom: 20px;
-    }
+    } */
 
     .resultados{
         width: 90%;
         height: 200px;
         display: flex;
-        justify-content: start;
+        justify-content: center;
         align-items: center;
     }
 
-    .resultados h2, p{
-        margin: 0 0 0 0;
-        padding: 0;
+    .resultados h2{
+        margin-left: 0;
+        padding: 5px;
+    }
+    
+    .resultados p{
+        margin-left: 0;
+        padding: 5px;
     }
 }
