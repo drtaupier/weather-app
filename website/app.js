@@ -35,7 +35,7 @@ window.onload = function(){
     //Variables:
     const generate = document.getElementById('generate');
     //function to change to uppercase.
-    let temperature = '';
+    
     generate.addEventListener('click', function(e){
         ui.delete();
         const apiKey = 'b06beb7d88106fd35742f31d9b9865b5';
