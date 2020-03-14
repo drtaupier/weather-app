@@ -63,16 +63,21 @@ section article form{
     width: 80%;
     height: 20%;
     margin: 50px auto;
+    display: flex;
+    flex-direction: column;
 }
 
 section article form input[type="text"]{
     width: 80%;
     padding: 15px;
     outline: 0;
+    margin-top: 7px;
 }
 
 section article form input[type="submit"]{
-    width: 90px;
+    width: 150px;
+    border-radius: 5px;
+    margin: 6px 0 20px 0;
     padding: 15px;
     background: #47A4E6;
     color: #fff;
@@ -105,7 +110,8 @@ footer h3{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
+    margin-top: 40px;
 }
 
 .resultados h2{
@@ -128,7 +134,7 @@ footer h3{
 
 }
 
-@media only screen and (min-width:590px) and (max-width:370px){
+@media only screen and (min-width:370px) and (max-width:590px){
     .container{
         grid-template-areas: 
         "header"
@@ -151,19 +157,33 @@ footer h3{
 
     #form{
         width: 100%;
+        height: auto;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         min-width: 370px;
+        position: relative;
+        bottom: 150px;
     }
 
     #form input[type=text]{
-        width: 100%;
+        width: 90%;
+    }
+
+    #form input[type=submit]{
+        margin-bottom: 20px;
     }
 
     .resultados{
-        width: 100vw;
+        width: 90%;
+        height: 200px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
     }
 
     .resultados h2, p{
-        margin-left: 20px;
+        margin: 0 0 0 0;
+        padding: 0;
     }
 }

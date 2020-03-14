@@ -35,11 +35,12 @@ app.post('/api/addData', (req, res)=>{
     let data = {
       id: getNextId(),
       temp: req.body.temp,
-      date: myDate(),
-      feeling: req.body.feeling
+      feeling: req.body.feeling,
+      date: myDate()
     }
     projectData.push(data);
     res.send('Información enviada con éxito');
+    console.log(projectData);
 });
 
 const getNextId = () => projectData.length+1;
